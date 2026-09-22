@@ -6,5 +6,6 @@ export function total(items: Item[]): number {
 }
 
 export function describe(items: Item[]): string {
-  return `${items.length} item(s), ${total(items).toFixed(2)}`
+  const count = items.reduce((n, i) => n + i.qty, 0)
+  return `${count} item(s), ${total(items).toFixed(2)}`
 }
