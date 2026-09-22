@@ -1,0 +1,14 @@
+name: CI
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: check cart total
+        run: |
+          echo "::error file=src/cart.ts,line=5,col=1::qty is unused here; the discount replaced it instead of multiplying it"
+          exit 1
